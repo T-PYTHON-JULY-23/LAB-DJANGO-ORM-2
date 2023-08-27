@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Update {% endblock %}
+
+{% block content %}
+
+<div class="row ">
+    <h2>Adding post</h2>
+    <form action="{% url 'main:update_view' post.id %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" value="{{post.title}}">
+            <div class="mb-3">
+                <label class="form-label">content</label>
+                <textarea class="form-control" name="content">{{post.content}}"</textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Category: </label>
+                <select class="form-select" aria-label="Default select example" name="category">
+                    <option value="fashion" {% if post.category == "fashion" %} selected {% endif%}> fashion </option>
+                    <option value="cooking" {% if post.category == "cooking" %} selected {% endif%}> cooking </option>
+                    <option value="lifestyle" {% if post.category == "lifestyle" %} selected {% endif%}> lifestyle
+                    </option>
+                    <option value="reviews" {% if post.category == "reviews" %} selected {% endif%}> reviews </option>
+                    <option value="business" {% if post.category == "business" %} selected {% endif%}> business
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Publish Date:</label>
+                <input type="date" class="form-control" name="publish_date" value="post.publish_date.isoformat" />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Post</button>
+    </form>
+
+</div>
+{% endblock %}

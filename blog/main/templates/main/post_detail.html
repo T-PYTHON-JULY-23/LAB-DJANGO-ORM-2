@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Detail {% endblock %}
+
+{% block content %}
+
+<div class="border border-2 p-2 d-flex flex-column gap-2">
+    <div class="d-flex justify-content-between">
+        <h2 class="">{{ post.title }}</h2>
+        <div>
+            <a href="{% url 'main:update_view' post.id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'main:delete_view' post.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <p class="w-50">{{ post.content }}</p>
+    <p> {{ post.category }} <br> {{ post.publish_date }}</p>
+</div>
+
+
+
+{% endblock %}
