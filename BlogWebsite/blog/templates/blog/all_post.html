@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %} All posts in my blog {% endblock %}
+
+{% block content %}
+<div class="posts">
+<h1 class="text-center text-info text-uppercase"> posts </h1>
+
+{% for blog in blogs %}
+    <div class="border border-1 rounded-4 p-4 mt-1">
+        <h3 class="text-center text-info text-uppercase">{{ blog.title }}</h3>
+        <p>{{ blog.Content }}</p>
+        <a href="{% url 'blog:details_post_view' blog.id %}" class="btn btn-primary" >more</a>
+    </div>
+ </div>
+{% endfor %}
+
+{% endblock %}

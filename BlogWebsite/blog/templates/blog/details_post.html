@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %} details {% endblock %}
+
+
+{% block content%}
+
+
+<div class="details flex-column gap-2">
+    <h2>{{ blog.title }}</h2>
+    <div class="d-flex justify-content-between">
+        <h3>{{blog.Content}}</h3>
+        <div>
+            <a href="{% url 'blog:update_post_view' blog.id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'blog:delete_post_view' blog.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <p>{{blog.category }}</p> 
+    
+</div>
+
+
+{%endblock%}
