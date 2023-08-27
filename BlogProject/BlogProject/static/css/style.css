@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caladea&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   scroll-padding-top: 2rem;
+   text-decoration: none;
+   list-style: none;
+   scroll-behavior: smooth;
+   }
+   .hero{
+      background-image: linear-gradient(rgba(17, 17, 19, 0.505),rgba(22, 25, 32, 0.807));
+      width: 100%;
+      min-height: 100vh;
+      background-position: center;
+      background-size: cover;
+      padding: 10px 10%;
+      overflow: hidden;
+      position: relative;
+   }
+   body {
+      background-color: rgba(158, 156, 8, 0.325);
+  }
+
+   img{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+   
+   }
+   @media (min-aspect-ratio: 16/9){
+      img{
+         width: 100%;
+         height: auto;
+   
+      }
+   }
+   @media (max-aspect-ratio: 16/9){
+      img{
+         width: auto;
+         height: 100%;
+         
+      }
+   }
+
+   nav {
+      width: 100%;
+      position: absolute;
+      top: 1%;  
+      left: -4%; 
+      padding: 20px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      
+      
+      }
+      p1{
+         color: rgba(229, 226, 195, 0.668);
+         font-family: 'Creepster', cursive;
+         font-size: 36px;
+
+
+      }
+      nav ul li {
+         text-align: right;
+         background-color: rgba(142, 85, 39, 0.058);
+         border-radius: 50%;
+         opacity: 0.8;
+         padding: 10px;
+         margin: 5px;
+         display: inline-block;
+      
+      }
+      
+      nav ul li a {
+         text-decoration: none;
+         color: rgb(229, 226, 195);
+         transition: color 0.3s;
+         outline: none;
+         font-family: 'Black Ops One', cursive;
+         font-size: 20PX;
+      
+      
+      }
+      nav ul li a:hover {
+         color: #b69c82;
+         opacity: 1;
+      
+      }
+      .content {
+         margin-top: 27%;
+         text-align: center; 
+         margin-left: auto; 
+         margin-right: auto;
+         max-width: 800px; 
+         font-family: 'Black Ops One', cursive;
+      }
+      
+      h1 {
+         font-family: 'Alice', serif;
+         color: rgba(240, 239, 182, 0.81);
+         font-size: 36px;
+         font-family: 'Black Ops One', cursive;
+       }
+
+       .btn {
+         display: inline-block;
+         padding: 16px 40px;
+         background-color: rgba(54, 72, 35, 0.677);
+         text-decoration: none;
+         border-radius: 1000px;
+         width: 207px;
+         text-align: center;
+         }
+         
+         .btn button {
+         border: none;
+         background-color: transparent;
+         color: #a3a32c;
+         font-size: 16px;
+         font-family: 'Black Ops One', cursive;
+
+         }
+         .btn:hover {
+         background-color: #455821;
+         color: rgb(67, 65, 17);
+         box-shadow: 0 0 5px #75d237, 0 0 25PX #b2e057
+         ,0 0 50px #9ca734, 0 0 100PX #c3d580 ,0 0 200PX  #aab23d;
+         }
+
+         table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #6baf60;
+        }
+        
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #011b0b;
+
+        }
+        
+        tr:nth-child(even) {
+            background-color: #063217;
+
+        }
+        
+        td {
+            background-color: #5f8261;
+            color: rgb(41, 37, 37);
+            font-family: 'Caladea', serif;
+        }
+        th{
+         font-family: 'Concert One', cursive;
+         padding: 8px;
+         text-align: left;
+        }
+        h2 {
+         font-family: 'Alice', serif;
+         color: rgba(36, 99, 24, 0.81);
+         font-size: 36px;
+         font-family: 'Rubik Mono One', sans-serif;
+         margin-top: 3%;
+         margin-left: 48%;
+       }
+
+     a{
+      color: rgb(91, 58, 45);
+      font-family: 'Koulen', cursive;
+  }
+
+     h3 {
+      font-family: 'Alice', serif;
+      color: rgba(36, 99, 24, 0.81);
+      font-size: 36px;
+      font-family: 'Rubik Mono One', sans-serif;
+      margin-top: 3%;
+      margin-left: 38%;
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      width: 400px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+  }
+
+  form label {
+      margin-bottom: 10px;
+  }
+
+  form input,
+  form textarea,
+  form select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  form input[type="submit"] {
+      width: auto;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+  }
+
+
+  .btn-wrapper {
+     position: fixed;
+     bottom: 8px;
+     left: 50%;
+     transform: translateX(-50%);
+  }
+
+  .btn1 {
+     display: inline-block;
+     padding: 16px 40px;
+     background-color: rgba(54, 72, 35, 0.677);
+     text-decoration: none;
+     border-radius: 1000px;
+     width: 209px;
+     text-align: center;
+  }
+
+  .btn1 button {
+     border: none;
+     background-color: transparent;
+     color: #a3a32c;
+     font-size: 16px;
+     font-family: 'Black Ops One', cursive;
+  }
+
+  .btn1:hover {
+     background-color: #455821;
+     color: rgb(67, 65, 17);
+     box-shadow: 0 0 5px #75d237, 0 0 25px #b2e057, 0 0 50px #9ca734, 0 0 100px #c3d580, 0 0 200px #aab23d;
+  }
+  p{
+   color: rgba(176, 65, 51, 0.668);
+   font-size: 24px;
+
+
+}

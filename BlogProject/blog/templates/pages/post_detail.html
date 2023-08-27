@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="post-details">
+        <h>{{ post.title }}</h>
+        <p>{{ post.content }}</p>
+       <br> <p>Category: {{ post.category }}</p>
+        <p>Published on: {{ post.publish_date }}</p>
+        <a href="{% url 'update_post' post_id=post.id %}">Edit</a><br>
+        <a href="{% url 'delete_post' post_id=post.id %}">Delete</a><br>
+    </div>
+</body>
+</html>

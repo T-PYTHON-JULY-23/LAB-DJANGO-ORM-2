@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+   <title>BLOG</title>
+</head>
+<body>
+   <div class="hero">
+       <img src="https://i.pinimg.com/originals/8b/b1/e6/8bb1e6d5e8c6db2a45bb427b5ab52f04.gif" alt="">
+       <nav>
+           <p1>BLOG-FOX</p1>
+           <ul>
+               <li><a href="http://127.0.0.1:8000/">HOME</a></li>
+               <li><a href="#">ABOUT</a></li>
+               <li><a href="#">CONTACTS</a></li>
+               <li>
+                   <form method="get" action="{% url 'search_posts' %}">
+                       <input type="text" name="query" placeholder="Search">
+                       <button type="submit" class="search-icon"><i class="material-icons">search</i></button>
+                   </form>
+               </li>
+           </ul>
+       </nav>
+
+       <div class="content">
+           <h1 class="text-uppercase">WELCOME TO THE BLOG</h1>
+           <br>
+           <a href="http://127.0.0.1:8000/posts/" class="btn">
+               <button>SHOW POSTS</button>
+           </a>
+       </div>
+   </div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+</html>
