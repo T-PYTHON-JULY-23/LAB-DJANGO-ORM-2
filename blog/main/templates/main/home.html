@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="row align-items-center justify-content-center pt-5">
+    <div class="col d-flex flex-column justify-content-center align-items-center ">
+        <h3>Share your interests with everyone</h3>
+        <a href="{% url 'main:add_post_view' %}" class="btn btn-primary" role="button">Get starterd</a>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <img class="w-50 rounded-4"
+            src="https://media.istockphoto.com/id/1143088863/vector/business-communication-internet-blogging-post-flat-design-vector-illustration.jpg?s=612x612&w=0&k=20&c=jLnOWVvd0VmTFt5I7cNABPY863ruLv3EvoqJ3Q7qRr8=" />
+    </div>
+</div>
+
+{% endblock %}
