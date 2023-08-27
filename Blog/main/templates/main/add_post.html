@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Add new post {% endblock %}
+
+
+{% block content %}
+<div class="container pt-2">
+    <div class="row">
+
+        <div class="col">
+            <h2>Adding post</h2>
+
+            <form  action="{% url 'main:add_post_view' %}" method="post" class="d-flex flex-column gap-2">
+                {% csrf_token %} 
+                <label>Title: </label>
+                <input type="text" name="title" />
+
+                <label>Content: </label>
+                <textarea name="content" rows="4" ></textarea>
+                
+
+                <label>Category: </label>
+                <select name="category">
+                    {% for value, title in category_choices %}
+                        <option value="{{value}}">{{title}}</option>
+                    {% endfor %}
+                </select>
+
+
+                <label>Publish Date:</label>
+                <input type="date" name="publish_date" />
+
+                <input type="submit" value="Add Post" class="btn btn-primary ms-5 me-5"/>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
