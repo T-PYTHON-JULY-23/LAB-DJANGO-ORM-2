@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %} add post {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col">
+        <h2>Adding post</h2>
+        <form  action="{% url 'main:add_post_view' %}" method="post" class="d-flex flex-column gap-2">
+            {% csrf_token %}
+            <label>title</label>
+            <input type="text" name="title" />
+            <label>content:</label>
+            <textarea name="content"></textarea>
+            <label>category</label>
+            <select name="category">
+                <option value="Travel"> 1-Travel blogs  </option>
+                <option value="Lifestyle"> 2-Lifestyle blogs </option>
+                <option value="Personal"> 3-Personal blogs </option>
+                <option value="Food"> 4-Food blogs </option>
+                <option value="Health"> 5-Health blogs </option>
+            </select>
+            <label>publish_date</label>
+            <input type="datetime-local" name="publish_date" />
+            <input type="submit" value="Add post" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

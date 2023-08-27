@@ -1,0 +1,9 @@
+.home_img{
+    background-image: url('/static/images/blog1.jpg');
+    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100dvh;
+     
+    box-shadow: 10px 10px 10px 10px rgba(54, 16, 16, 0.6);
+}
