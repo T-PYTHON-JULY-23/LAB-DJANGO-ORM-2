@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Update blog {{ blog.title }} {% endblock %}
+
+
+{% block content %}
+    <div class="row">
+
+        <div class="col">
+            <h2>Update blog</h2>
+
+            <form  action="{% url 'blog:update_post_view' blog.id %}" method="post" class="d-flex flex-column gap-2">
+                {% csrf_token %} 
+                <label>Title: </label>
+                <input type="text" name="title" value="{{ blog.title }}"/>
+
+                <label>Content: </label>
+                <input type="text" name="Content" value="{{ blog.Content }}"/>
+
+                <label>Category: </label>
+                <select name="category">
+                    {% for value, title in blog.category_choices %}
+                        <option value="{{value}}" {% if blog.category == value %} selected {% endif%}>{{title}}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Publish Date:</label>
+                <input type="date" name="publish_date" value="{{ blog.publish_date.isoformat }}" />
+
+                <input type="submit" value="update blog" class="btn btn-primary"/>
+
+            </form>
+
+        </div>
+
+    </div>
+
+{% endblock %}

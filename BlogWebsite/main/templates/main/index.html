@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %} My Blog {% endblock %}
+
+
+{% block content %}
+
+<div class="row pt-4">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100 text-warning">
+            <h1>Welcome to my blog</h1>
+            <p> This is my favourite blog to read!</p>
+            <a  href="{% url 'blog:all_post_view' %}" class="btn btn-info rounded rounded-5">view the posts</a>
+        </div> 
+
+    </div>
+    <div class="col-12 col-md-6 g-0 order-1 order-md-2">
+        <img class="w-100 rounded-4" src="/static/images/home5.jpeg" />
+    </div>
+</div>
+
+
+
+{% endblock %}
