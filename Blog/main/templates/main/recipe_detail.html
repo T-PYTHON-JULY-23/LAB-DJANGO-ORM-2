@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block title %} {{ recipe.title }} recipe{% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column gap-2">
+    <h1>{{ recipe.title }}</h1>
+    <div class="d-flex justify-content-between">
+        <h3>{{recipe.catagory}}</h3>
+         <div>
+           <a href="{% url 'main:recipe_update_view' recipe.id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'main:recipe_delete_view' recipe.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <p>{{ recipe.content }}</p>
+    <h4>{{recipe.publish_date}}</h4>
+</div>
+{% endblock %}
