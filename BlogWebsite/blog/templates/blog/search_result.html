@@ -1,0 +1,37 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+
+
+{%block title%} Add post {%endblock%}
+
+
+{%block background%}
+
+<div>
+    <div style="background-image: url('/static/images/add_background.jpg');" class="background effect"></div>
+</div>
+
+{%endblock%}
+
+
+
+{%block content%}
+
+{% if query %}
+    <div>
+        <div>
+        
+        {% for post in posts %}
+            <div>
+                
+                <p>{{post.title}}</p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% else %}
+    <h1>Please enter a search query</h1>
+
+{% endif %}
+
+{%endblock%}

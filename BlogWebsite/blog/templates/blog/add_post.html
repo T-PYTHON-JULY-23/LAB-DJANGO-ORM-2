@@ -1,0 +1,63 @@
+{% extends 'blog/base.html'%}
+{% load static%}
+
+
+{%block title%} Add post {%endblock%}
+
+
+{%block background%}
+
+<div>
+    <div style="background-image: url('/static/images/add_background.jpg');" class="background effect"></div>
+</div>
+
+{%endblock%}
+
+
+{%block content%}
+
+
+<div  class="container border border-4 mt-4 p-3" style="background-color: white; opacity: 0.9;"> 
+
+    <div class="row ">
+        <div class="col">
+            <div class="d-flex flex-column justify-content-center align-items-center mt-3 ">
+            <h1 style="color: rgb(240, 179, 49);"> Adding a new opst</h1> 
+            </div>
+
+            <form action="{% url 'blog:add_post_view'%}" method="post" class="d-flex flex-column justify-content-center align-items-center">
+                {% csrf_token %} 
+
+                <label style="font-size: 25px;"> Title </label>
+                <input size="40" type="text" name="title">
+
+
+                <label style="font-size: 25px;"> Content </label>
+                <textarea rows="4" cols="40" name="content"> </textarea> 
+
+
+                <label style="font-size: 25px;" > Category </label>
+                <select  name="category">
+                    {%for value,title in Post %} 
+                    <option value="{{value}}">  {{title}}</option>
+                    {%endfor%}
+                </select>
+
+                <label class="mt-3" style="font-size: 25px;"> Publish Date </label>
+                <input type="datetime-local" name="publish_date">
+
+                <input type="submit" value="Add Post" class="btn btn-primary mt-4"/> 
+
+            </form>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+{%endblock%}
+
+
