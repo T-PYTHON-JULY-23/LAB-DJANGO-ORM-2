@@ -5,6 +5,8 @@ from .models import post
 # Create your views here.
 
 def home_view(request : HttpRequest):
+        
+    
     
     return render(request,"main/index.html")
 
@@ -40,8 +42,10 @@ def add_post(request: HttpRequest):
       
 
 def all_posts(request: HttpRequest):
-
-    posts = post.objects.all()
+    if request.GET.get('search'):
+        posts=post.objects.filter(title__contains="search")
+    else:
+        posts = post.objects.all()
 
     return render(request, "main/all_posts.html", context = {"posts" : posts})
 
@@ -50,30 +54,33 @@ def all_posts(request: HttpRequest):
 def post_detail_view(request : HttpRequest, post_id):
     
     #to get a single entry in the database
-    post = post.objects.get(id=post_id)
+    posts = post.objects.get(id=post_id)
 
-    return render(request, "main/post_detail.html", {"post" : post})
+    return render(request, "main/post_detail.html", {"post" : posts})
 
 
 
 def post_update_view(request:HttpRequest, post_id):
     
-    post = post.objects.get(id=post_id)
+    posts = post.objects.get(id=post_id)
 
     #updating a post
     if request.method == "POST":
-        post.title = request.POST["title"]
-        post.content = request.POST["content"]
-        post.category = request.POST["category"]
-        post.publish_date = request.POST["publish_date"]
-        post.save()
+        posts.title = request.POST["title"]
+        posts.content = request.POST["content"]
+        posts.category = request.POST["category"]
+        posts.publish_date = request.POST["publish_date"]
+        posts.save()
 
-        return redirect("post:post_detail_view", post_id=post.id)
+        return redirect("main:post_detail_view", post_id=posts.id)
 
-    return render(request, "post/update_post.html", {"post": post})
+    return render(request, "main/update_post.html", {"post": posts})
 
 
 def post_delete_view(request: HttpRequest, post_id):
     #deleting an entry from database
-    post = post.objects.get(id=post_id)
-    post.delete()
+    posts = post.objects.get(id=post_id)
+    posts.delete()
+    return redirect ("main:all_posts")
+
+

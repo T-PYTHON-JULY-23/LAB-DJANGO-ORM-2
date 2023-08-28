@@ -7,7 +7,7 @@
 <div class="row">
 
     <div class="col">
-        <h2>Adding post</h2>
+        <h2>Adding Travel post</h2>
 
         <form action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
             {% csrf_token %}
@@ -20,8 +20,11 @@
             <label>Category: </label>
 
             <select name="category">
-                <option value="art">art</option>
-                <option value="travel">travel</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Italy">Italy</option>
+                <option value="France">France</option>
+                <option value="Spain">Spain</option>
+                <option value="United States">United States</option>
 
             </select>
 
