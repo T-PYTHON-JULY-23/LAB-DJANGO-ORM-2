@@ -1,39 +1,38 @@
-
 {% extends 'main/base.html' %}
 
 {% block title %} Add new post {% endblock %}
 
 
 {% block content %}
-    <div class="row">
+<div class="row">
 
-        <div class="col">
-            <h2>Adding post</h2>
+    <div class="col">
+        <h2>Adding post</h2>
 
-            <form  action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
-                {% csrf_token %} 
-                <label>Title: </label>
-                <input type="text" name="title" />
-                
-                <label>content: </label>
-                <textarea name="content"></textarea> 
+        <form action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
+            {% csrf_token %}
+            <label>Title: </label>
+            <input type="text" name="title" />
 
-                <label>Category: </label>
+            <label>content: </label>
+            <textarea name="content"></textarea>
 
-                <select name="category">
-                    <option value="art">art</option>
-                    <option value="travel">travel</option>
-                    
-                </select>
+            <label>Category: </label>
 
-                <label>Publish Date:</label>
-                <input type="date" name="publish_date" />
+            <select name="category">
+                <option value="art">art</option>
+                <option value="travel">travel</option>
 
-                <input type="submit" value="Add Book" class="btn btn-primary"/>
+            </select>
 
-            </form>
+            <label>Publish Date:</label>
+            <input type="date" name="publish_date" />
 
-        </div>
+            <input type="submit" value="Add Book" class="btn btn-primary" />
+
+        </form>
 
     </div>
+
+</div>
 {% endblock %}
