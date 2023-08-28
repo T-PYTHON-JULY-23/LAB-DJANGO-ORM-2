@@ -10,12 +10,15 @@ def posts(request: HttpRequest):
     posts = Post.objects.all()
     return render(request, 'blog/posts.html', {'posts': posts})
 
-def add_post(request:HttpRequest):
+def add_post(request: HttpRequest):
     if request.method == 'POST':
-            new_blog = Post(title=request.POST["title"], author=request.POST["content"], category=request.POST["category"], publish_date=request.POST["publish_date"])
-            new_blog.save()
-            return redirect('posts')  # Redirect to the posts page after successful submission
-    return render(request, 'blog/add_post.html', {'CATEGORY_CHOICES':Post.CATEGORY_CHOICES })
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:posts')  # Redirect to the posts page after successful submission
+    else:
+        form = PostForm()
+    return render(request, 'blog/add_post.html', {'form': form})
 
 def post_detail(request: HttpRequest, post_id):
     post = Post.objects.get(id=post_id)
@@ -23,14 +26,19 @@ def post_detail(request: HttpRequest, post_id):
 
 
 def post_update(request, post_id):
-    post = Post.objects.get(id=post_id)
 
-    if request.method == "POST":
-        post.title = request.POST["title"]
-        post.category = request.POST["category"]
-        post.publish_date = request.POST["publish_date"]
-        post.save()
-        return redirect('post_detail', post_id=post_id)
+    try:
+        post = Post.objects.get(id=post_id)
+
+        if request.method == "POST":
+            post.title = request.POST["title"]
+            post.content = request.POST["content"]
+            post.category = request.POST["category"]
+            post.publish_date = request.POST["publish_date"]
+            post.save()
+            return redirect('post_detail', post_id=post_id)
+    except:
+        return render(request, 'blog/notFound.html')
     return render(request, 'blog/post_update.html', {'post': post})
 
 
@@ -39,7 +47,7 @@ def post_delete(request:HttpRequest, post_id):
     post.delete()
     return render(request, 'blog/post_delete.html', {'post': post})
 
-def search(request):
+def search(request: HttpRequest):
     query = request.GET.get('query')
     if query:
         posts = Post.objects.filter(title__icontains=query)
