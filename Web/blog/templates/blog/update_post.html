@@ -1,0 +1,50 @@
+{%extends 'blog/base.html'%}
+{% load static %}
+{% block title%} update {{post.titile}} {%endblock%}
+{% block content %}
+<style>
+    body {
+        background-image: url("/static/images/blog.jpg");
+        height: 100%;
+        width: 100%;
+        background-position:center ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    </style>
+<form action="{% url 'blog:add_post_view' %}" method="post" class="d-flex flex-column justify-content-center align-items-center">
+    {% csrf_token %} 
+
+    <label style="font-size: 26px;"> Title </label>
+    <input type="text" name="title">
+
+
+    <label style="font-size: 26px;"> Content </label>
+    <textarea rows="4" cols="40" name="content"> </textarea> 
+
+
+    <label style="font-size: 26px;" > Category </label>
+    <select  name="category">
+        <option selected>Select the category!</option>
+        <option value="Lifestyle" {% if post.category =='Lifestyle'%} selected {% endif %}> Lifestyle Blogs </option> 
+        <option value="Sports" {% if post.category == 'Sports'%} selected {% endif %}> Sports Blogs </option>
+        <option value="Music" {% if post.category == 'Music'%} selected {% endif %}> Music Blogs </option>
+        <option value="Travel" {% if post.category == 'Travel'%} selected {% endif %}> Travel Blogs </option>
+    </select>
+
+
+
+    <label class="mt-3" style="font-size: 25px;"> Publish Date </label>
+    <input type="datetime-local" name="publish_date">
+
+    <input type="submit" value="Add Your Blog!" class="btn btn-primary mt-4"/> 
+
+</form>
+</div>
+
+
+</div>
+
+</div>
+{% endblock %}

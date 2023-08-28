@@ -1,0 +1,22 @@
+{%extends 'blog/base.html'%}
+<title>{% block title%} home bage {%endblock%}</title>
+{% block content %}
+<style>
+    body {
+        background-image: url("/static/images/blog.jpg");
+        height: 100%;
+        width: 100%;
+        background-position:center ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    </style>
+<div>
+    <a href="{% url 'blog:add_post_view'%}">
+        <button class="bttn">Go To Add Your blog!</button>
+      </a>
+</div>
+
+    
+{% endblock %}
