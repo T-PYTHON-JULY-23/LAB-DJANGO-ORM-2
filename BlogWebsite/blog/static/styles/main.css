@@ -1,0 +1,30 @@
+.background{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: -1;
+}
+
+.effect{
+    -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+    filter: blur(5px);
+}
+
+
+.container_home{
+    padding-top: 65px;
+
+}
+
+.bt_size{
+    padding-left: 10px;
+}
+
+.form_size{
+    font-size: 30px;
+}
