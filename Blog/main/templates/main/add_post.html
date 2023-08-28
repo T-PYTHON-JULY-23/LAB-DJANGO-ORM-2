@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col">
         <h2>Adding post</h2>
-        <form  action="{% url 'main:add_post_view' %}" method="post" class="d-flex flex-column gap-2">
+        <form  action="{% url 'main:add_post_view' %}" method="post" enctype="multipart/form-data" class="d-flex flex-column gap-2">
             {% csrf_token %}
             <label>title</label>
             <input type="text" name="title" />
@@ -20,6 +20,8 @@
                 <option value="Food"> 4-Food blogs </option>
                 <option value="Health"> 5-Health blogs </option>
             </select>
+            <label>Choose Image: </label>
+            <input type="file" name="image" class="form-control"/>
             <label>publish_date</label>
             <input type="datetime-local" name="publish_date" />
             <input type="submit" value="Add post" class="btn btn-primary"/>

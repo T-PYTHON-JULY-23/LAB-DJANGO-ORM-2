@@ -10,5 +10,6 @@ urlpatterns = [
     path("main/post_detail.html/<post_id>/", views.post_detail_view, name="post_detail_view"),
     path("main/update/<post_id>/", views.post_update_view, name="post_update_view"),
     path("delete/<post_id>/", views.post_delete_view, name="post_delete_view"),
-    path('search/', views.search, name='search'),
+    path("search/", views.posts_search_view, name="posts_search_view"),
+
 ]
