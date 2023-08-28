@@ -38,7 +38,7 @@
                 </ul>
               </div>
 
-              <form class="d-flex" role="search" action="{% url 'blog:search_result_view'%}" method="post">
+              <form class="d-flex" role="search" action="{% url 'blog:search_result_view'%}" method="get">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search" required aria-label="Search" name="search_query">
                 <button class="btn btn-outline-warning" type="submit">Search</button>

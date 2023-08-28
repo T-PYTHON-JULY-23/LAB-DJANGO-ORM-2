@@ -10,5 +10,5 @@ urlpatterns = [
     path('detail/<post_id>/',views.detail_posts,name="detail_post_view"),
     path('update/<post_id>/',views.update_post,name='update_post_view'),
     path('delet/<post_id>/', views.delet_post,name='delet_post_view'),
-    path('search_result/', views.search_feature, name='search_result_view')
+    path('search_result/', views.search_feature, name='search_result_view'),
 ]

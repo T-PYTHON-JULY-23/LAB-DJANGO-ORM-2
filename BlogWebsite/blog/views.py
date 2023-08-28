@@ -29,11 +29,11 @@ def view_post(request:HttpRequest):
 
 
 def detail_posts(request:HttpRequest, post_id):
-    try:
-        posts = Post.objects.get(id=post_id)
-        return render (request,'blog/detail_posts.html', {'posts':posts})
-    except Post.DoesNotExist:
-       raise Http404("Given post not found....")
+    
+    posts = Post.objects.get(id=post_id)
+
+    return render (request,'blog/detail_posts.html', {'posts':posts})
+
 
 
 
@@ -44,17 +44,23 @@ def detail_posts(request:HttpRequest, post_id):
 
 
 def update_post(request:HttpRequest, post_id):
-    posts = Post.objects.get(id=post_id)
-
-    if request == 'POST':
-        Post.title = request.POST['title']
-        Post.content = request.POST['content']
-        Post.category = request.POST['category']
-        Post.publish_date = request.POST['publish_date']
-        posts.save()
-
-        return redirect('blog:detail_post_view', post_id=posts.id)
     
+    
+
+    try:
+         posts = Post.objects.get(id=post_id)
+         if request == 'POST':
+            Post.title = request.POST['title']
+            Post.content = request.POST['content']
+            Post.category = request.POST['category']
+            Post.publish_date = request.POST['publish_date']
+            posts.save()
+
+            return redirect('blog:detail_post_view', post_id=posts.id)
+    except:
+
+        return render(request,'blog/not_found.html')
+        
 
     return render(request,'blog/ubdate_posts.html',{'posts':posts})
 
@@ -70,12 +76,17 @@ def delet_post(request:HttpRequest, post_id):
 
 
 
-def search_feature(request):
+def search_feature(request:HttpRequest):
     
-    if request.method== 'POST':
-        search_query = request.POST['search_query']
-        posts = Post.objects.filter(title__contains=search_query)
-        return render(request, 'blog/search_result.html', {'query':search_query, 'posts':posts})
+    if 'search_query' in request.GET:
+        
+        posts = Post.objects.filter(title__contains=request.GET['search_query'])
+    else:
+        posts=Post.objects.all()
+
+    return render(request, 'blog/search_result.html', {'posts':posts})
+    
+
 
 def category(request,post_choices):
     if request.method=='POSt':
