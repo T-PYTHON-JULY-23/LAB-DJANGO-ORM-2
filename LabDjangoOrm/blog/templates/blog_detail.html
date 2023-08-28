@@ -1,0 +1,19 @@
+{% extends 'home.html'%}
+
+{% block content %}
+<div class="w-100 text-light" style="text-align: center;">
+    <h1>The title of details is {{blog.title}}</h1>
+</div>
+<div class="dis mb-3" style="color: white;">
+    <h3>{{blog.title}}</h3>
+    <p>{{blog.content}}</p>
+    <h4>{{blog.category}}</h4>
+    <h4>{{blog.publish_date}}</h4>
+</div>
+
+<div style="width: 100%; height: 30; padding-top: 24px; align-items: center; justify-content: center;">
+    <a href="{% url 'blog:del_blog' blog.id%}" class="btn btn-primary">Delete</a>
+    <a href="{% url 'blog:blog_update' blog.id%}" class="btn btn-primary">Update</a>
+</div>
+
+    {% endblock %}

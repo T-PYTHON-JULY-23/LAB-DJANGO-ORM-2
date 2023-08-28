@@ -1,0 +1,21 @@
+{% extends 'home.html'%}
+
+
+
+
+
+
+{% block content %}
+<div class="txt mt-5 w-100 justify-content-between">
+    <h1 style="color: white;">Display Blog</h1>
+</div>
+    {% for blog in blogs %}
+    <div class="dis mb-3">
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.content}}</p>
+        <h4>{{blog.category}}</h4>
+        <h4>{{blog.publish_date}}</h4>
+        <a href="{% url 'blog:blog_detail' blog.id %}" class="btn btn-primary">more</a>
+    </div>
+    {% endfor%}
+    {% endblock %}

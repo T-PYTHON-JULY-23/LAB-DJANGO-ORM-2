@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,600&family=Kanit:ital,wght@0,300;1,400&family=Pacifico&family=Poppins:ital@0;1&family=Roboto+Mono:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body{
+        background-image: url('/static/img/bg1.jpg');
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: auto;
+        font-family: 'Kanit', sans-serif;
+      }
+      .navbar-brand{
+        font-size: 25px;
+      }
+      .navbar{
+        border-radius: 30px;
+        opacity: 0.3;
+
+      }
+      .title1{
+        margin-left: 190px;
+        color: white;
+        font-size: 80px;
+        margin-top: 90px;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        left: 300px;
+        z-index: 0;
+      }
+      .frow{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+      }
+      .title2{
+        margin-left: 400px;
+        color: white;
+        font-size: 80px;
+        font-family: 'Bricolage Grotesque', sans-serif;
+        z-index: 0;
+      }
+      .textbar1{
+        background-color: rgb(255, 255, 255,0.3);
+        border-radius: 30px;
+        color: black !important;
+        padding: 10px;
+        width: 700px;
+        height: 200px;
+        margin-top: 0px;
+        filter: blur(0.3px);
+      }
+      .form1{
+        padding-top: 50px;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .dform{
+        background-color: rgba(225, 225, 225, 0.3);
+        padding: 10px 8px;
+        margin-top: 40px;
+        margin-left: 350px;
+        width: 700px;
+        border-radius: 40px;
+      }
+      .dform h1{
+        text-align: center;
+      }
+      .btn{
+        margin-left: 300px;
+        padding: 5px 30px;
+      }
+      .dis{
+        background-color: rgba(225, 225, 225, 0.3);
+        padding: 8px 10px;
+        width: 1000px;
+        margin-left: 250px;
+      }
+      .txt{
+        text-align: center;
+      }
+      .div2{
+        text-align: center;
+        width: 100%;
+        margin-top: 90px;
+        font-size: 30px;
+      }
+      .from_cate{
+        margin-bottom: 100px;
+      }
+    </style>
+  </head>
+  <body class="p-3 m-0 border-0 bd-example m-0 border-0">    
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'blog:blog_view'%}">Blog</a>
+        <div>
+          <form action="{% url 'blog:search_blog'%}" method="POST">
+            {% csrf_token %}
+            <input type="search" placeholder="Search" name="search">
+            <!-- <button type="submit" class="btn1"><span class="material-symbols-outlined" >search</span></button> -->
+          </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'blog:blog_view'%}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:all_blog_view'%}">View Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:add_new_blog'%}">Add Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- End Example Code -->
+
+    <!--content -->
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>
