@@ -13,7 +13,7 @@ def addRecpie(request: HttpRequest):
      
      if request.method == "POST":
         #adding a recpes
-        new_recpie = Recpie(title_recipes=request.POST['title_recipes'],category=request.POST['category'],Ingredients=request.POST['Ingredients'],Instructions=request.POST['Instructions'],publish_date=request.POST['publish_date'])
+        new_recpie = Recpie(title_recipes=request.POST['title_recipes'],category=request.POST['category'],Ingredients=request.POST['Ingredients'],Instructions=request.POST['Instructions'],publish_date=request.POST['publish_date'],image=request.FILES['image'])
         new_recpie.save()
         return redirect("main:post_view")
 
@@ -44,7 +44,7 @@ def detail_recpie(request: HttpRequest,recpie_id):
    try:
     recpie = Recpie.objects.get(id=recpie_id)
    except:
-     return redirect("main:not_fond")
+     return render(request, "main/notfound.html")
    return render(request, "main/detail_recpie.html",{"recpie":recpie} )
 
 def not_found(request: HttpRequest):
@@ -60,6 +60,7 @@ def update_recpie(request: HttpRequest,recpie_id):
         recpie.Ingredients=request.POST['Ingredients']
         recpie.Instructions=request.POST['Instructions']
         recpie.publish_date=request.POST['publish_date']
+        recpie.image=request.FILES['image']
         recpie.save()
         return redirect("main:post_view")
         

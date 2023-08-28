@@ -8,5 +8,6 @@ class Recpie(models.Model):
     Ingredients = models.TextField()
     Instructions = models.TextField()
     publish_date = models.DateField()
+    image=models.ImageField(upload_to="images/",default="/images/drecpie.jpg")
     
 
