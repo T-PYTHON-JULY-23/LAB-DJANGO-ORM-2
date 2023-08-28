@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Details for blog {{ blog.title }} {% endblock %}
+
+{% block content %}
+<style>
+
+.btn{
+    font-size: 20px;
+    width:110px;
+    background-color:rgb(202, 112, 112);
+    color:rgb(15, 37, 30);
+    border-color: rgb(15, 37, 30);
+    }
+#content{  
+    font-size: 23px;
+}
+.blogbox{
+    margin-top: 20px;
+    background-color: rgba(223, 200, 200, 0.541);
+    font-size: 1.40rem;
+    row-gap: 23px;
+    padding: 10px;
+}
+#title{
+    color: rgb(202, 112, 112);
+}
+</style>
+<div class="d-flex flex-column gap-2 blogbox"> <!-- home,add,all pages DONE-->
+    <h3 id="title">{{ blog.title }}</h3>
+    <div class="d-flex justify-content-between ">
+        <p id="category">category: {{ blog.category }}</h6>
+            <div>
+            <a href="{% url 'main:blog_update_view' blog.id %}" class="btn ">Update</a>
+            <a href="{% url 'main:blog_delete_view' blog.id %}" class="btn ">Delete</a>
+        </div>
+    </div>
+    <p id="content">{{ blog.content }}</p>
+</div>
+{% endblock %}
