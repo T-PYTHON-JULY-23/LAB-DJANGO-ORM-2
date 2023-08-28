@@ -1,0 +1,20 @@
+{% extends 'main/index.html' %}
+
+
+{% block body %}
+<div class="container mt-3"> 
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="p-4 d-flex flex-column position-static">
+
+        <strong class="d-inline-block mb-2 text-primary">{{blog.title}}</strong>
+`     <p class="text-white mb-auto">{{blog.Content}}</p>
+      <p class="text-white mb-auto">{{blog.Bootcamp}}</p>
+      <div class=" text-white mb-1">{{blog.publish_date}}</div>
+      <a href="{% url 'main:home_page' %}" class="btn btn-success" tabindex="-1" style="margin-top: 10px;" role="button" aria-disabled="true">Go back</a>
+        
+
+
+
+      
+    </div>
+{% endblock body %}

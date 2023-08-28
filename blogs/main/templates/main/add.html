@@ -1,0 +1,50 @@
+{% extends 'main/index.html' %}
+{% block body %}
+<div class="container">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+    <form action="" method="POST">
+        <h3>Tuwaiq bootcamps for graduates</h3>
+        <p>Share Your Review</p>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Bootcamp name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="fill in title" name="title">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Review</label>
+            <textarea class="form-control" id="exampleFormControlInput1" placeholder="fill in Review" name="Content"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">publish Date</label>
+            <input type="date" name="publish_date" />
+        </div>
+
+ 
+
+        
+        <label> Tuwiaq Bootcamps : </label>
+                <select name="Bootcamp">
+                    {% for value, title in Bootcamps_ch %}
+                        <option value="{{value}}">{{title}}</option>
+                    {% endfor %}
+        </select>
+        
+        <div class="mb-3">
+            <input type="submit" value="Create blog" class="btn btn-primary" />
+        </div>
+
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock body %}

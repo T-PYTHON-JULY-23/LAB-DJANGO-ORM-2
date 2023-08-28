@@ -1,0 +1,50 @@
+{% extends 'main/index.html' %}
+
+
+{% block body %}
+<div class="container">
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+    <form action="{% url 'main:blog_update_view' blog.id %}" method="POST">
+         <h3>Tuwaiq camp for graduates</h3>
+         <p>Share Your Review</p>
+         {% csrf_token %}
+         <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label"> Bootcamp name</label>
+            <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="fill in title" value="{{blog.title}}"/>
+         </div>
+
+         <div>
+            <label for="exampleFormControlInput1" class="form-label" >Review</label>
+            <textarea name="Content">{{ blog.Content }}</textarea> 
+        </div>
+
+         <div>
+            <label for="exampleFormControlInput1" class="form-label" >Publish Date</label>
+            <input type="date" name="publish_date" value="{{ blog.publish_date.isoformat }}" />
+
+
+
+         </div>
+         <label> Tuwiaq Bootcamps : </label>
+         <select name="Bootcamp">
+             {% for value, title in blog.Bootcamps_ch %}
+                 <option value="{{value}}" {% if blog.Bootcamp == value %} selected {% endif %}>{{title}}</option>
+             {% endfor %}
+ </select>
+
+    <input type="submit" value="update blog" class="btn btn-primary"/>
+
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock body %}
