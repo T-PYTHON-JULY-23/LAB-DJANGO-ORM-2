@@ -7,12 +7,12 @@
 <div class="row">
 
     <div class="col">
-        <h2>Adding Travel post</h2>
+        <h2>Posts are a great way to share your thoughts and experiences with others !</h2>
 
         <form action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
             {% csrf_token %}
-            <label>Title: </label>
-            <input type="text" name="title" />
+            <label>city: </label>
+            <input type="text" name="city" />
 
             <label>content: </label>
             <textarea name="content"></textarea>

@@ -33,7 +33,7 @@ def add_post(request: HttpRequest):
 
     if request.method == "POST":
         #adding a post
-        new_post = post(title=request.POST["title"], content=request.POST["content"], category= request.POST["category"], publish_date=request.POST["publish_date"])
+        new_post = post(city=request.POST["city"], content=request.POST["content"], category= request.POST["category"], publish_date=request.POST["publish_date"])
         new_post.save()
 
         return redirect("main:all_posts")
@@ -43,7 +43,7 @@ def add_post(request: HttpRequest):
 
 def all_posts(request: HttpRequest):
     if request.GET.get('search'):
-        posts=post.objects.filter(title__contains="search")
+        posts=post.objects.filter(city__contains="search")
     else:
         posts = post.objects.all()
 
@@ -66,7 +66,7 @@ def post_update_view(request:HttpRequest, post_id):
 
     #updating a post
     if request.method == "POST":
-        posts.title = request.POST["title"]
+        posts.city = request.POST["city"]
         posts.content = request.POST["content"]
         posts.category = request.POST["category"]
         posts.publish_date = request.POST["publish_date"]

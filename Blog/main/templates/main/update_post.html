@@ -12,7 +12,7 @@
 
             <form  action="{% url 'main:post_update_view' post.id %}" method="post" class="d-flex flex-column gap-2">
                 {% csrf_token %} 
-                <label>Title: </label>
+                <label>city: </label>
                 <input type="text" name="title" value="{{ post.title }}"/>
 
                 <label>content: </label>
