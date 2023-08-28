@@ -1,0 +1,21 @@
+{% extends 'main/base.html'%}
+{% block title%} Home {% endblock %}
+
+{% block content%}
+
+<div class="row pt-4">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Welcome to Blog website</h1>
+            <p> This blog webiste is to share your post and read others posts  !</p>
+            <a href="{% url 'main:add_view' %}" class="btn btn-success rounded rounded-5">Add post</a>
+            <a href="{% url 'main:all_blogs_view' %}" class="btn btn-success rounded rounded-5 mt-3">View posts  </a>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6 g-0 order-1 order-md-2">
+        <img class="w-100 rounded-4" src="/static/images/blogb.jpeg" />
+    </div>
+</div>
+
+{% endblock %}
