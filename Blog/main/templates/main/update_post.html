@@ -1,0 +1,40 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %} Update post {{ post.title }} {% endblock %}
+
+
+{% block content %}
+    <div class="row">
+
+        <div class="col">
+            <h2>Update post</h2>
+
+            <form  action="{% url 'main:post_update_view' post.id %}" method="post" class="d-flex flex-column gap-2">
+                {% csrf_token %} 
+                <label>Title: </label>
+                <input type="text" name="title" value="{{ post.title }}"/>
+
+                <label>content: </label>
+                <textarea name="content">{{ post.content }}</textarea> 
+
+
+                <label>Category: </label>
+                <select name="category">
+                    {% for value, title in post.category_choices %}
+                        <option value="{{value}}" {% if post.category == value %} selected {% endif%}>{{title}}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Publish Date:</label>
+                <input type="date" name="publish_date" value="{{ post.publish_date.isoformat }}" />
+
+                <input type="submit" value="update post" class="btn btn-primary"/>
+
+            </form>
+
+        </div>
+
+    </div>
+
+{% endblock %}

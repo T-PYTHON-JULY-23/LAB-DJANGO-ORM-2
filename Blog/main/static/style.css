@@ -1,0 +1,8 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.dark {
+    background-color: rgb(60, 60, 60);
+    color: white;
+}
