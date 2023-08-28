@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background-color: rgba(172, 172, 172, 0.61);
+}
+
+.wrapper{
+    min-height: 70vh;
+    background-image: url(/static/images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.wrapper h1{
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #a8a8a8;
+    font-weight: 600;
+    transition: 0.5s;
+    
+}
+
+.wrapper h1:hover{
+    -webkit-text-stroke: 2px #ffffff;
+    color: transparent;
+}
+.logo{
+    width: 100px;
+}
+.htext{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}

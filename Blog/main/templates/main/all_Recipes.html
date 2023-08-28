@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{%block title%} all Recipes {%endblock%}
+
+{%block content%}
+<div class="row">
+    <div class="col d-flex justify-content-center align-items-center pt-3">
+        <h1>All Recipes </h1>
+    </div> 
+</div>
+<div class="row">
+        {% for recipe in recipes %}
+        <div class="col-4">
+            <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">{{ recipe.title }}</h2>
+                <p class="card-text">{{ recipe.content }}</p>
+                <p class="card-text">Category: {{ recipe.category }}</p>
+                <p class="card-text">Published on: {{ recipe.publish_date }}</p>
+                
+                <a href="{% url 'main:recipe_detail_view' recipe.id %}" class="d-flex justify-content-between text-decoration-none">
+                    <h5>more</h5>
+                </a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{%endblock%}
