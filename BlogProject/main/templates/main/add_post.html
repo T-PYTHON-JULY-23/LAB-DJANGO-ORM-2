@@ -1,0 +1,50 @@
+{% extends 'main/base.html' %}
+
+{% block title %}add post {% endblock %}
+
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col">
+        <h2>Adding post</h2>
+
+        <form  action="{% url 'main:add_post' %}" method="post" class="d-flex flex-column gap-2">
+            {% csrf_token %} 
+            <label>Title: </label>
+            <input type="text" name="title" />
+
+            <label>Content: </label>
+            <input type="text" name="content " />
+            
+            
+
+
+            <label>Category: </label>
+            <select name="category">
+                {% for value, title in CATEGORY_CHOICES %}
+                    <option value="{{value}}">{{title}}</option>
+                {% endfor %}
+            </select>
+
+         
+
+
+            <label>Publish Date:</label>
+            <input type="date" name="publish_date" />
+
+            <input type="submit" value="Add Book" class="btn btn-primary"/>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+
+
+   
+{% endblock %}  

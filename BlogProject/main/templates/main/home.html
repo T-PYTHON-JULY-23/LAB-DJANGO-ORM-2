@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Blog Home{% endblock %}
+
+
+{% block content %}
+
+
+
+
+<div class="row pt-4">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Welcome to our blog</h1>
+            <p> This blog for healthy food !</p>
+            <a href="{% url 'main:posts' %}" class="btn btn-success rounded rounded-5"> More</a>
+            
+        </div>
+
+    </div>
+   
+    
+</div>
+
+<hr />
+
+
+   
+    
+    
+    
+    
+
+
+
+
+
+
+   
+{% endblock %}     
