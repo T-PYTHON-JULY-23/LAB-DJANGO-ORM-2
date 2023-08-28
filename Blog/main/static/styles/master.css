@@ -1,0 +1,13 @@
+body {
+    background: url(https://www.elegantthemes.com/blog/wp-content/uploads/2013/09/bg-3-full.jpg);
+
+}
+
+.wrraper, .navbar{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
+    background-color: #eee;
+}
+
+li {
+    color: rgb(192, 77, 77);
+}

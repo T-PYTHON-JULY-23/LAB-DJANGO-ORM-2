@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %} {% block title %} Update Post : {{post.title}} {% endblock %}
+{%block content %}
+<form action="{% url 'main:post_update_view' post.id %}" method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="id_title" class="form-label">Title</label>
+    <input
+      value="{{post.title}}"
+      type="text"
+      class="form-control"
+      id="id_title"
+      name="title"
+      maxlength="2048"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="id_content" class="form-label">Content</label>
+    <textarea
+      class="form-control"
+      id="id_content"
+      name="content"
+      rows="4"
+      required
+    >{{post.content}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="id_category" class="form-label">Category</label>
+    <select class="form-select" id="id_category" name="category" required>
+      {% for val, choice in post.CATEGORY_CHOICES %}
+        <option value="{{ val }}" {% if choice == post.category %} selected {% endif %}>{{ choice }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="id_publish_date" class="form-label">Publish Date</label>
+    <input
+      value="{{post.publish_date}}"
+      type="datetime-local"
+      class="form-control"
+      id="id_publish_date"
+      name="publish_date"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endblock %}

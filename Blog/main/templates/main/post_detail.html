@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %} {% block title %} Post Detailes {% endblock %}
+{%block content %}
+<div>
+  <div class="row d-flex justify-content-between">
+    <h2 class="col-9">{{post.title}}</h2>
+    <div class="col-3 text-end">
+        <a
+          href="{% url 'main:post_update_view' post.id %}"
+          class="col btn btn-warning p-1"
+        >
+          Update
+        </a>
+        <a
+          href="{% url 'main:post_delete_view' post.id %}"
+          class="col btn btn-danger p-1"
+        >
+          Delete
+        </a>
+    </div>
+  </div>
+
+  <p class="fw-light">{{ post.content }}</p>
+</div>
+{% endblock %}
