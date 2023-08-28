@@ -1,0 +1,94 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title %} Update Blog {{blog.title}} {% endblock %}
+
+
+{% block content %}
+<style>
+.adding_box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 23px;
+    padding: 34px;
+    background-color: rgba(223, 200, 200, 0.541);
+    color: rgb(26, 66, 53);
+    font-size: 1.40rem;
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    }
+#header{
+    font-size: 40px;
+    color: rgb(202, 112, 112);
+        margin-left: 240px;
+    margin-bottom: 25px;}
+#btn{
+    margin-top: 60px;
+    margin-left: 250px;
+    width:190px;
+    background-color:rgb(202, 112, 112);
+    color:rgb(15, 37, 30);
+    border-color: rgb(15, 37, 30);
+    }
+.box_item{
+    background-color: rgba(80, 126, 118, 0.418);
+    margin: 12px;
+    
+}
+input {
+    border: none;
+    border-bottom: 2px solid rgb(19, 14, 14);
+}
+select{
+
+    border: none;
+    border-bottom: 2px solid rgb(19, 14, 14);
+    height: 38px;
+}
+textarea{
+    border: none;
+    border-bottom: 2px solid rgb(19, 14, 14);
+    width: 680px;
+    height: 150px;
+}
+</style>
+<div class="row-10 adding_box " >  
+    <div class="col-9">
+      <h3 id="header"> Update blog</h3>
+
+    <form action="{% url 'main:blog_update_view' blog.id  %}" method="post" >
+        {% csrf_token %} 
+        <div class="row">
+        <div class="col form-group">
+        <label>Title: </label>
+        <input class="box_item overflow-auto" value="{{ blog.title }}" type="text" name="title" placeholder="blog title" />
+        </div>
+        <div class=" col form-group">
+        <label>Publish Date:</label>
+        <input class="box_item" value="{{ blog.publish_date }}" type="date" name="publish_date" />
+        </div>
+        <div class="form-group col">
+        <label>Category: </label>
+        <select class="box_item" name="category" >
+          {% for value, title in category_choices %}
+          <option value="{{value}}" {% if blog.category == value %} selected {% endif%}>{{title}}</option>
+             {% endfor %}
+          
+            </select>
+          </div>
+        </div>
+          <div class="row-5">
+          <div class="form-group col">
+           <label for="exampleFormControlTextarea1">Blog content:</label>
+            <textarea class="box_item" name="content" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ blog.content }}</textarea>
+          </div>
+        <div class="col ">
+            <button id="btn" type="submit" value="update Blog" class="btn btn-primary">Update</button>
+          </div></div>
+    </form>
+    </div>
+    </div>
+{% endblock %}

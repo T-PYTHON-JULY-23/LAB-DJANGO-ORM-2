@@ -1,0 +1,46 @@
+{% extends 'main/base.html'%}
+{% load static %}
+
+{% block title %} Adding Blog {% endblock %}
+
+
+{% block content %}
+
+<div class="row-10 adding_box " >  
+    <div class="col-9">
+      <h3 id="header"> Adding blog</h3>
+
+    <form action="{% url 'main:addblog_view' %}" method="post" >
+        {% csrf_token %} 
+        <div class="row">
+        <div class="col form-group">
+        <label>Title: </label>
+        <input class="box_item overflow-auto" type="text" name="title" placeholder="blog title" />
+        </div>
+        <div class=" col form-group">
+        <label>Publish Date:</label>
+        <input class="box_item" type="date" name="publish_date" />
+        </div>
+        
+        <div class="form-group col">
+        <label>Category: </label>
+        <select class="box_item" name="category" >
+          {% for value, title in category_choices %}
+          <option value="{{value}}">{{title}}</option>
+             {% endfor %}
+            </select>
+          </div>
+        </div>
+          <div class="row-5">
+          <div class="form-group col">
+           <label for="exampleFormControlTextarea1">Blog content:</label>
+            <textarea class="box_item" name="content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+        <div class="col ">
+            <button id="btn" type="submit" value="Add Blog" class="btn btn-primary">Add</button>
+          </div></div>
+    </form>
+    </div>
+    </div>
+    
+{% endblock %}
