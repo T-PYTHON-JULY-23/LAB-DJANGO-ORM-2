@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Search Page {% endblock %}
+
+{% block content %}
+
+{% if query %}
+  <div>
+    <div>
+        {% if posts %}
+            {% for post in posts %}
+          
+                <div class="col-4 mt-4">
+                    <div class="d-flex flex-column gap-3 border border-1 shadow rounded-4 p-4 mt-1  h-100">
+                        <h3>{{ post.title }}</h3>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6>Publish Date: {{ post.publish_date }}</h6>
+                            <a href="{% url 'main:blog_detail_view' post.id %}"class="btn btn-outline-secondary">more</a>
+                        </div>
+                    </div>  
+                </div>
+            {% endfor %}
+        {% else %}
+           <h3>No search results found</h3>
+        {% endif %}
+    </div>
+  </div>
+{% else %} 
+<h1>Please enter a title</h1>
+{% endif %}
+
+{% endblock %}

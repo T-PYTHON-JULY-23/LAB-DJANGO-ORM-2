@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Writing Page {% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+
+  <div class="col-md-6 ">
+    <h2>Write your Blog</h2>
+      
+
+    <form  action="{% url 'main:add_blog_view' %}" method="post" class="d-flex flex-column gap-2">
+      {% csrf_token %} 
+      <label>Title: </label>
+      <input type="text" name="title" style="background-color: #f9f0e3;" />
+
+      <label>Content: </label>
+      <textarea name="content" style="background-color: #f9f0e3;" ></textarea> 
+          
+      <label>Category: </label>
+
+      <select name="category" style="background-color: #f9f0e3;">
+        {% for value, title in Categorys %}
+        <option value="{{value}}">{{title}}</option>
+        {% endfor %}
+      </select>
+
+      <label>Publish Date:</label>
+      <input type="date" name="publish_date" style="background-color: #f9f0e3;"  />
+
+       <input type="submit" value="Add Blog" class="btn " style="background-color: #f1683e;" />
+          
+    </form>
+  </div>
+</div>
+{% endblock %}

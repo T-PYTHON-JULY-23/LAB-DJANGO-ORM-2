@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Home Page {% endblock %}
+
+{% block content %}
+<div class="container-lg border border-black d-flex justify-content-center mb-2">
+    <img src="/static/images/logo.png" alt="Bootstrap" width="50" height="50">
+    <div>
+        <h4 class="ms-3 mt-3">About Heavy Pen Blog</h4>
+        <h5 class="mt-5 text-center"> Heavy Pen Blog is a creative writer's getaway from standard writing sources,<br/> allowing them to write about whatever they desire.  </h5>
+    </div>
+</div>
+<hr class="border border-2"/>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for blog in blogs %}
+    <div class="col-4 mt-4">
+        <div class="d-flex flex-column gap-3 border border-1 shadow rounded-4 p-4 mt-1  h-100">
+            <h3>{{ blog.title }}</h3>
+            <div class="d-flex justify-content-between align-items-center">
+                <h6>Publish Date: {{ blog.publish_date }}</h6>
+                <a href="{% url 'main:blog_detail_view' blog.id %}"class="btn btn-outline-secondary">more</a>
+            </div>
+        </div>  
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}
