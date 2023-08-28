@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <title>Document</title>
+</head>
+<body style="width: 100%;height: 100%;margin: 0;padding: 0;">
+   <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'images/Screenshot_2023-08-18_204638-removebg-preview.png' %}" alt="..." height="70">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'main:add_page' %}">ADD Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'main:home_page' %}">Reviews <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          
+      </li>
+      <form action="{% url 'main:search' %}" method="GET" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input type="search" name="search" class="form-control form-control-dark text-bg-dark" placeholder="Search what you looking for" aria-label="Search">
+    </form>
+    </div>
+  </div>
+</nav>
+
+  {% block body %}
+  {% for blog in blogs %}
+<div class="container mt-3"> 
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+
+          <strong class="d-inline-block mb-2 text-primary">{{blog.title}}</strong>
+      <div class=" text-white mb-1">{{blog.publish_date}}</div>
+      <p class="text-white mb-auto">{{blog.Content}}</p>
+      <p class="text-white mb-auto">{{blog.Bootcamp}}</p>
+      <a href="{% url 'main:blog_detail_view' blog.id %}" class="d-flex justify-content-between text-decoration-none">
+        <h5>more</h5>
+    </a>
+    <a href="{% url 'main:blog_update_view' blog.id %}" style="margin-top: 10px;" class="btn btn-warning w-25">Update</a>
+    <a href="{% url 'main:blog_delete_view' blog.id %}" class="btn btn-danger mb-3 w-25" tabindex="-1" style="margin-top: 10px;" role="button" aria-disabled="true">delete</a>
+
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+</div>
+{% endfor %}
+  {% endblock body %}
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
