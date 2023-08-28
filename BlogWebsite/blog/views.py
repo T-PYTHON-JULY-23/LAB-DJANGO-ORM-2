@@ -75,7 +75,7 @@ def search_feature(request):
     if request.method== 'POST':
         search_query = request.POST['search_query']
         posts = Post.objects.filter(title__contains=search_query)
-        return render(request, 'blog/all_post.html', {'query':search_query, 'posts':posts})
+        return render(request, 'blog/search_result.html', {'query':search_query, 'posts':posts})
 
 def category(request,post_choices):
     if request.method=='POSt':
