@@ -1,0 +1,39 @@
+{% extends 'main/base.html'%}
+{% block title%} Add Post {% endblock %}
+
+{% block content%}
+
+<div class="row">
+
+    <div class="col">
+        <h2>Adding Post</h2>
+
+        <form  action="{% url 'main:add_view' %}" method="post" class="d-flex flex-column gap-2">
+            {% csrf_token %} 
+            <label>Title: </label>
+            <input type="text" name="title" />
+
+            <label>content: </label>
+            <input type="text" name="content" />
+            
+
+
+
+            <label>Publish Date:</label>
+            <input type="datetime-local" name="publish_date" />
+
+
+            <label>Category: </label>
+            <select name="category">
+                {% for value, title in category_choices %}
+                    <option value="{{value}}">{{title}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add post" class="btn btn-primary"/>
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}
