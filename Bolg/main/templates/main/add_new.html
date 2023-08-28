@@ -1,0 +1,54 @@
+
+
+{% extends 'main/base.html' %}
+
+{% block title %} Add new  {% endblock %}
+
+
+{% block content %}
+
+<div class="container ">
+    <div class="row ">
+        <div class="d-flex flex-column gap-3 border border-3 shadow rounded-4 p-4 mt-5  h-100 justify-content-between align-items-center"  >
+            <h2>Adding New Bolg</h2>
+            <div class="justify-content-between align-items-center">
+                <form  action="{% url 'main:add_new_view' %}" method="post" class="d-flex flex-column gap-2">
+                    {% csrf_token %} 
+                    <div class="row">
+                        <div class="justify-content-between align-items-center">
+                            <div class="col-12">
+                                <label>Title: </label>
+                                <input type="text" name="title" />
+                            </div>
+                            <div class="col-12 pt-3">
+                                <label>content: </label>
+                                <textarea name="content"></textarea> 
+                            </div>
+                            <div class="col-12 pt-3">
+                                <label >category: </label>
+                                <select name="category">
+                                    <option value="Fashion blog"> Fashion blogs </option>
+                                    <option value="Music blog"> music blog </option>
+                                    <option value="Travel blog"> travel blog </option>
+                                    <option value="Beauty blog"> beauty blog </option>
+                                    <option value="Business blog"> Business blog </option>
+                                </select>
+                            </div>
+                            <div class="col-12 pt-3">
+                                <label>Publish Date:</label>
+                                <input type="datetime-local" name="publish_date" />
+                            </div>
+                            <div class="col-12 pt-3">
+                                <button class="btn btn-primary" value="Add Book" type="submit" >Submit form</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

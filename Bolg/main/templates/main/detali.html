@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Details {{ book.title }} {% endblock %}
+
+{% block content %}
+<div class="d-flex flex-column gap-2">
+    <h1>{{ new.title }}</h1>
+    <div class="d-flex justify-content-between">
+        <h3>{{new.content}}</h3>
+        <div>
+            <a href="{% url 'main:updeat_view' new.id %}" class="btn btn-warning">Update</a>
+            <a href="{% url 'main:delete_view' new.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+    <p>{{ new.category }}</p>
+</div>
+{% endblock %}

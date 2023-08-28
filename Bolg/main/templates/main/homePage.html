@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Book Club for Books Lovers {% endblock %}
+
+
+{% block content %}
+
+<div class="row pt-4">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="d-flex flex-column justify-content-center align-items-center pt-5 h-100">
+            <h1>Welcome to New Blog</h1>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6 g-0 order-1 order-md-2">
+        <img class="w-100 rounded-4" src="/static/images/blog.jpg" />    </div>
+</div>
+
+<div class="container">
+    <div class="row" style="margin-top: 50px; margin-left:100px ;">
+        <div class="col ">
+            <h2> To View the new blog </h2>
+            <a href="{% url 'main:all_new_view' %}" class="btn btn-success rounded rounded-5"style="margin-left:100px ;"> view new</a>
+
+            
+        </div>
+
+        <div class="col">
+            <h2> To Add the new blog </h2>
+            <a href="{% url 'main:add_new_view' %}" class="btn btn-success rounded rounded-5"style="margin-left:100px;">add new</a>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}
