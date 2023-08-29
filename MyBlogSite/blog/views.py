@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect
 from .models import Post
 from .forms import PostForm
 from django.http import HttpRequest, HttpResponse
@@ -35,17 +35,18 @@ def post_update(request, post_id):
             post.content = request.POST["content"]
             post.category = request.POST["category"]
             post.publish_date = request.POST["publish_date"]
+            post.photo = request.POST["photo"]
             post.save()
-            return redirect('post_detail', post_id=post_id)
+            return redirect('blog:posts')
     except:
-        return render(request, 'blog/notFound.html')
+        return render(request,'blog/notFound.html')
     return render(request, 'blog/post_update.html', {'post': post})
 
 
 def post_delete(request:HttpRequest, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
-    return render(request, 'blog/post_delete.html', {'post': post})
+    return render(request, 'blog/post_detail.html', {'post': post})
 
 def search(request: HttpRequest):
     query = request.GET.get('query')

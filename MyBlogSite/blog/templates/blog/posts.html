@@ -47,18 +47,28 @@
     </div>
     <div>
 
-        
-        {%for post in posts%}
-        <h3>{{post.title}}</h3>
-        <label>
-            {{post.content}}
-        </label>
-        <img src={{post.photo.url}} />
-        <lable>{{post.category}}</lable>
-        <label>{{post.published_date}}</label>
-        {%endfor%}
-
-    </div>
-
+<section class="container">
+    <div class="slider-wraped">
+        <div class="slider-text">
+            {%for post in posts%}
+            <h2 class="slide-h">{{post.title}}</h2>
+            <label>
+                {{post.content}}
+            </label>
+            <label>
+                {{post.content}}
+            </label>
+            <img src={{post.photo.url}} />
+            <lable>{{post.category}}</lable>
+            <label>{{post.published_date}}</label>
+            <a href="{% url 'blog:post_detail' post.id %}" class="d-flex justify-content-between text-decoration-none">
+              <span class="material-symbols-outlined"> edit </span>
+          </a>
+          </div>
+        </div>   
+      </div>
 </section>
+</section>
+
+  {%endfor%}
 {%endblock%}

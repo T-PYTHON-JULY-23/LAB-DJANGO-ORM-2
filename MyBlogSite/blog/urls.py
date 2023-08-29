@@ -11,4 +11,5 @@ urlpatterns = [
     path('post/<int:post_id>/update/', views.post_update, name='post_update'),
     path('post/<int:post_id>/delete/', views.post_delete, name='post_delete'),
     path('search/', views.search, name='search'),
+    
 ]
