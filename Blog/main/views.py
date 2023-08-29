@@ -4,9 +4,7 @@ from .models import post
 
 # Create your views here.
 
-def home_view(request : HttpRequest):
-        
-    
+def home_view(request : HttpRequest):   
     
     return render(request,"main/index.html")
 
@@ -33,7 +31,7 @@ def add_post(request: HttpRequest):
 
     if request.method == "POST":
         #adding a post
-        new_post = post(city=request.POST["city"], content=request.POST["content"], category= request.POST["category"], publish_date=request.POST["publish_date"])
+        new_post = post(city=request.POST["city"], content=request.POST["content"], category= request.POST["category"], image=request.FILES["image"] ,publish_date=request.POST["publish_date"])
         new_post.save()
 
         return redirect("main:all_posts")
@@ -53,6 +51,7 @@ def all_posts(request: HttpRequest):
 
 def post_detail_view(request : HttpRequest, post_id):
     
+    
     #to get a single entry in the database
     posts = post.objects.get(id=post_id)
 
@@ -69,6 +68,7 @@ def post_update_view(request:HttpRequest, post_id):
         posts.city = request.POST["city"]
         posts.content = request.POST["content"]
         posts.category = request.POST["category"]
+        posts.image= request.FILES["image"]
         posts.publish_date = request.POST["publish_date"]
         posts.save()
 
