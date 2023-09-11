@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %} All blogs {% endblock %}
+
+{% block content %}
+<h1> Our Posts</h1>
+<div class="row">
+    {% for post in main %}
+    <div class="col-4 mt-4">
+        <div class="d-flex flex-column gap-3 border border-1 shadow rounded-4 p-4 mt-1  h-100 justify-content-between">
+            <img src="{{ post.image.url }}" class="rounded-4 object-fit-cover border border-1 post-poster" />
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.Content }}</p>
+            <h6>{{ post.publish_date }}</h6>
+            <a href="{% url 'main:post_detail_view' post.id %}" class="d-flex justify-content-between text-decoration-none">
+                <h5>more</h5>
+                <span class="material-symbols-outlined">star</span>
+            </a>
+        </div>
+    </div>
+        {% endfor %}
+</div>
+{% endblock %}
+
+
