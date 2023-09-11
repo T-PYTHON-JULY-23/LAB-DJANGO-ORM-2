@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Recipe details {% endblock %}
+
+
+{% block content %} 
+<div class="row d-flex justify-content-center pb-4 ">
+    <img src={{recpie.image.url}} />
+</div>
+<div class="container border p-4 mb-5 d-flex">
+   
+    <div class="col p-4 d-flex flex-column position-static  ">
+        <strong class="d-inline-block mb-2 text-primary-emphasis">recipe</strong>
+        <h3 class=" display-6 titleblog">{{recpie.title_recipes}}</h3>
+        <div class="mb-1 text-body-secondary titlerecipes"> publish date :{{recpie.publish_date}}</div>
+        <div class="mb-1 text-body-secondary titlerecipes"> country of recipe :{{recpie.category}}</div>
+        <strong class=" mb-2 text-primary-emphasis ">Ingredients :</strong> 
+        <p class="card-text mb-auto desblog">
+          {{recpie.Ingredients}}</p>
+        <strong class="d-inline-block mb-2 text-primary-emphasis"> Instructions:  </strong>
+        <p class="card-text mb-auto desblog">
+            {{recpie.Instructions}}</p>
+        <div class=" p-3 flex-column gap-4 mt-5">
+            <a class="btn btn-outline-warning ms-3 " href="{% url 'main:update_recpie' recpie.id %}">Update »</a>
+            <a class="btn btn-outline-danger ms-3" href="{% url 'main:delete_recpie' recpie.id %}">Delete »</a>
+        </div>  
+            
+</div>
+
+{%endblock%}

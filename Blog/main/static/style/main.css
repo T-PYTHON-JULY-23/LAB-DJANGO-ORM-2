@@ -1,0 +1,37 @@
+.title{
+    font-size:80px;;
+    font-family: 'Playfair Display', serif;
+    padding-bottom: 0px;
+}
+.nav-link{
+    font-family: 'Quicksand', sans-serif;
+    color:black !important;
+
+}
+.nav-link a:hover{
+    color: lightcoral !important;
+}
+.serchbox{
+    padding-left:200px !important;
+}
+.ho{
+    padding-left:615px !important;
+
+}
+
+.titlehome{
+        font-family: 'Playfair Display', serif;
+        
+    }
+.titleblog{
+    font-family: 'Playfair Display', serif;
+}
+.desblog {
+    font-family: 'Quicksand', sans-serif;
+}
+/*not found page*/
+.picopps{
+    position: fixed;
+    align-content: center;
+    width: 50px;
+}

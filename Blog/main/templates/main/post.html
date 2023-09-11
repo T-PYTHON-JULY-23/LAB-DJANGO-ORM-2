@@ -1,0 +1,42 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %} Post recipes  {% endblock %}
+
+
+{% block content %}
+
+<div class="container pt-5 border-top">
+  <h1 class="p-3 titlehome">all recpie</h1>
+   
+    <div class="row mb-2 ">
+        {% for recpie in recpies %}
+
+        <div class="col-md-6 ">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
+            <div class="row ps-4" >
+              <img src={{recpie.image.url}} />
+          </div>
+            <div class="col p-4 d-flex flex-column position-static  ">
+              <strong class="d-inline-block mb-2 text-primary-emphasis">recipe</strong>
+              <h3 class=" display-6 titleblog">{{recpie.title_recipes}}</h3>
+              <div class="mb-1 text-body-secondary titlerecipes"> publish date :{{recpie.publish_date}}</div>
+              <div class="mb-1 text-body-secondary titlerecipes"> country of recipe :{{recpie.category}}</div>
+              <strong class=" mb-2 text-primary-emphasis ">Ingredients :</strong> 
+              <p class="card-text mb-auto desblog">
+                {{recpie.Ingredients}}</p>
+              <strong class="d-inline-block mb-2 text-primary-emphasis"> Instructions:.. </strong>
+             
+            <a class="btn " href="{% url 'main:detail_recpie' recpie.id %}">MORE »</a>
+            
+        
+            </div>
+           
+            
+          </div>
+        </div> 
+        {%endfor%}
+      </div>
+     
+</div>
+{% endblock %}

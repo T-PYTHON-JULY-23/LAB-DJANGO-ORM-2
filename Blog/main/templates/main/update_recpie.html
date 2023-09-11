@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Recipes Home {% endblock %}
+
+
+{% block content %}
+<div class="container mt-3">
+    
+    <h2>Ubdate Recipes</h2>
+    <form action="{% url 'main:update_recpie' recpie.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+            <div class="mb-3 mt-3">
+                <label for="title-recipes">Title recipe:</label>
+                <input class="form-control" rows="5"  name="title_recipes" value="{{recpie.title_recipes}}" />
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="category">Select the country of recipe:</label>
+                <select class="form-select"   name="category">
+                    <option value="Saudi Arabia" {% if recpie.category == "Saudi Arabia" %} selected {% endif%}>Saudi Arabia</option>
+                    <option value="United Kingdom"  {% if recpie.category == "United Kingdom" %} selected {% endif%}>United Kingdom </option>
+                    <option value="United States"  {% if recpie.category == "United States" %} selected {% endif%}>United States</option>
+                    <option value="Italy"  {% if recpie.category == "Italy" %} selected {% endif%}>Italy</option>
+                    <option value="France"  {% if recpie.category == "France" %} selected {% endif%}>France</option>
+                    <option value="Australia"  {% if recpie.category == "Australia" %} selected {% endif%}>Australia</option>
+                    <option value="Japan"  {% if recpie.category == "Japan" %} selected {% endif%}>Japan</option>
+                    <option value="Brazil"  {% if recpie.category == "Brazil" %} selected {% endif%}>Brazil</option>
+                    <option value="India"  {% if recpie.category == "India" %} selected {% endif%}>India</option>
+                </select>
+            </div>
+            
+        <div class="mb-3 mt-3">
+            <label for="Ingredients">Ingredients:</label>
+            <textarea class="form-control" rows="5"  name="Ingredients">{{recpie.Ingredients}} </textarea>
+        </div>
+        <div class="mb-3 mt-3">
+            <label for="Instructions">Instructions:</label>
+            <textarea class="form-control" rows="5"  name="Instructions" >{{recpie.Instructions}} </textarea>
+            </div>
+            <div class="mb-3 mt-3">
+                <label>Publish Date:</label>
+                <input type="date" name="publish_date" value="{{ recpie.publish_date.isoformat }}"/>
+            </div>
+            <div class="mb-3">
+                <img src={{recpie.image.url}} width="150px"/>
+                <label for="formFile" class="form-label ps-4 pb-4">Change this picture</label>
+                <input class="form-control" type="file" name="image" id="formFile">
+              </div>
+
+            <input type="submit" value="Update recpie" class="btn btn-secondary"/>  
+        </form>
+    </div>
+
+    {%endblock%}
