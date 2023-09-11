@@ -1,0 +1,24 @@
+
+{% extends 'main/base.html' %}
+
+{% block title %} posts for posts Lovers {% endblock %}
+
+
+{% block content %}
+
+<div class="row pt-4">
+    <div class="col-12 col-md-6 order-2 order-md-1">
+        <div class="d-flex flex-column justify-content-center align-items-center h-100">
+            <h1>Capture the world through our lenses! </h1>
+            <p>Share your travel photos and inspire others to embark on their own adventures. </p>
+            <a href="{% url 'main:about_view' %}" class="btn btn-success rounded rounded-5">Learn More</a>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6 g-0 order-1 order-md-2">
+        <img class="w-100 rounded-4" src="/static/images/r6 2.jpeg" />
+    </div>
+</div>
+
+
+{% endblock %}
