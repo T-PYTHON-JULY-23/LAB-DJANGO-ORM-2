@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %} All Blogs {% endblock %}
+
+{% block content %}
+
+<h1> all Blogs</h1>
+
+
+
+{% for post in posts%}
+
+<div class="container"> 
+    <div class="accordion  mt-2 " id="accordionpost" >
+        <div class="accordion-item ">
+          <h2 class="accordion-header">
+            <button style="font-size: 40px; color: black;" class="accordion-button bg-warning " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionpost">
+            <div class="accordion-body">
+                <div>
+                    <h3> Title:{{post.title}}</h3>
+                    <h3> Content: {{post.content}} </h3>
+                    <h3> Category: {{post.category}} </h3>
+                    <h3> Publish date: {{post.publish_date}} </h3>
+                </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+
+{% endfor %}
+
+{% endblock %}
